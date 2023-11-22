@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Grid from "./component/Grid.component";
-import NavigationController from "./component/NavigationController.component";
+import React, { useState } from 'react';
+import Grid from './component/Grid.component';
+import NavigationController from './component/NavigationController.component';
 
 const App = () => {
   const [position, setPosition] = useState({ x: 1, y: 1 });
@@ -17,10 +17,7 @@ const App = () => {
           <Grid positionChange={positionChange} position={position} />
         </div>
         <div className="col-lg-6 col-md-12 col-sm-12">
-          <NavigationController
-            position={position}
-            positionChange={positionChange}
-          />
+          <NavigationController position={position} positionChange={positionChange} />
         </div>
       </div>
     </div>

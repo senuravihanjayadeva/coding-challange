@@ -6,14 +6,14 @@ function Grid({ position, positionChange }) {
   const [loading, setLoading] = useState(false);
 
   const teleportRobot = (x, y) => {
-    console.time("teleport-time")
+    console.time('teleport-time');
     setLoading(true);
     const totalDistance = Math.abs(position.x - x) + Math.abs(position.y - y);
     if (x >= 1 && x <= 5 && y >= 1 && y <= 5) {
       setTimeout(() => {
         setLoading(false);
         positionChange({ x, y });
-        console.timeEnd("teleport-time");
+        console.timeEnd('teleport-time');
       }, 1000 * totalDistance);
     }
   };
@@ -29,7 +29,8 @@ function Grid({ position, positionChange }) {
           data-testid={`cell-${x}-${y}`}
           aria-label={`cell-${x}-${y}`}
           className={`cell ${position.x === x && position.y === y ? 'robot' : ''}`}
-          onClick={() => teleportRobot(x, y)}></div>
+          onClick={() => teleportRobot(x, y)}
+        ></div>
       );
     }
     grid.push(<div key={x}>{row}</div>);

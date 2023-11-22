@@ -8,14 +8,14 @@ describe('Test Suite for App Component', () => {
     const leftBtnElement = screen.getByTestId('right-btn');
     fireEvent.click(leftBtnElement);
     const robotCell = screen.getByTestId('cell-2-1');
-    expect(robotCell).toHaveClass('robot')
+    expect(robotCell).toHaveClass('robot');
   });
-  
+
   test('Test Click on Cell - Teleport', async () => {
     render(<App />);
     const cellElementBefore = screen.getByTestId('cell-2-1');
     fireEvent.click(cellElementBefore);
-      await waitFor(() => {
+    await waitFor(() => {
       const cellElementAfter = screen.getByTestId('cell-2-1');
       expect(cellElementAfter).toHaveClass('robot');
     });
