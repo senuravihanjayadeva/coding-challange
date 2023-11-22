@@ -6,16 +6,16 @@ function NavigationController({ position, positionChange }) {
     const newPosition = { ...position };
 
     switch (direction) {
-      case "left":
+      case "up":
         if (newPosition.y > 1) newPosition.y--;
         break;
-      case "down":
+      case "right":
         if (newPosition.x < 5) newPosition.x++;
         break;
-      case "right":
+      case "down":
         if (newPosition.y < 5) newPosition.y++;
         break;
-      case "up":
+      case "left":
         if (newPosition.x > 1) newPosition.x--;
         break;
       default:
@@ -27,7 +27,7 @@ function NavigationController({ position, positionChange }) {
 
   return (
     <React.Fragment>
-      <h1>Control Panel</h1>
+      <h1 className="text-center">Control Panel</h1>
       <div className="row">
         <div className="col-12 text-center p-3">
           <button onClick={() => moveRobot("up")}>

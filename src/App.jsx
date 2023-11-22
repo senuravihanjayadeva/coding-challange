@@ -13,10 +13,10 @@ const App = () => {
     <div className="container p-5">
       <h1 className="text-center">Pronto Coding Challenge</h1>
       <div className="row p-5">
-        <div className="col-6">
+        <div className="col-lg-6 col-md-12 col-sm-12">
           <Grid positionChange={positionChange} position={position} />
         </div>
-        <div className="col-6">
+        <div className="col-lg-6 col-md-12 col-sm-12">
           <NavigationController
             position={position}
             positionChange={positionChange}

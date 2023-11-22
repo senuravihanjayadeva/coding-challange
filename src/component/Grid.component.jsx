@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 function Grid({ position, positionChange }) {
 
   const teleportRobot = (x, y) => {
-    console.log(position.x, position.y)
-    console.log(x,y)
     let xDistance = position.x - x;
     let yDistance = position.y - y;
     console.log(xDistance,yDistance)
@@ -18,9 +16,9 @@ function Grid({ position, positionChange }) {
 
   // Generating the grid
   const grid = [];
-  for (let y = 1; y <= 5; y++) {
+  for (let x = 1; x <= 5; x++) {
     const row = [];
-    for (let x = 1; x <= 5; x++) {
+    for (let y = 1; y <= 5; y++) {
       row.push(
         <div
           key={`${x}-${y}`}
@@ -33,7 +31,7 @@ function Grid({ position, positionChange }) {
       );
     }
     grid.push(
-      <div key={y}>
+      <div key={x}>
         {row}
       </div>
     );
