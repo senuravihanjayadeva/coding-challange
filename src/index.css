@@ -23,3 +23,8 @@
 .navigation-icon {
   font-size: xx-large;
 }
+
+.control-panel{
+  background-color: #ccc;
+  padding: 5%;
+}

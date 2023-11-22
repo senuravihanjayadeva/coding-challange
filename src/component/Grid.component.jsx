@@ -29,8 +29,18 @@ function Grid({ position, positionChange }) {
           data-testid={`cell-${x}-${y}`}
           aria-label={`cell-${x}-${y}`}
           className={`cell ${position.x === x && position.y === y ? 'robot' : ''}`}
-          onClick={() => teleportRobot(x, y)}
-        ></div>
+          onClick={() => teleportRobot(x, y)}>
+          {position.x === x && position.y === y && (
+            <FadeLoader
+              color={'black'}
+              loading={loading}
+              size={50}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+              className="loader-spinner"
+            />
+          )}
+        </div>
       );
     }
     grid.push(<div key={x}>{row}</div>);
@@ -38,17 +48,7 @@ function Grid({ position, positionChange }) {
 
   return (
     <div>
-      <div className="grid">
-        {grid}
-        <FadeLoader
-          color={'blue'}
-          loading={loading}
-          size={50}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-          className="loader-spinner"
-        />
-      </div>
+      <div className="grid">{grid}</div>
     </div>
   );
 }

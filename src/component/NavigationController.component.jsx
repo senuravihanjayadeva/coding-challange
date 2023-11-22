@@ -28,7 +28,7 @@ function NavigationController({ position, positionChange }) {
   return (
     <React.Fragment>
       <h1 className="text-center">Control Panel</h1>
-      <div className="row">
+      <div className="row control-panel">
         <div className="col-12 text-center p-3">
           <button aria-label="up-button" onClick={() => moveRobot('up')}>
             <i className="bi bi-arrow-up-square-fill navigation-icon"></i>
