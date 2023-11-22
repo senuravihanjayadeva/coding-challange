@@ -55,7 +55,7 @@ function NavigationController({ position, positionChange }) {
 }
 
 NavigationController.propTypes = {
-  position: PropTypes.string.isRequired,
+  position: PropTypes.object.isRequired,
   positionChange: PropTypes.func.isRequired
 };
 

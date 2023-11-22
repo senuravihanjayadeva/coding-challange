@@ -4,8 +4,15 @@ import PropTypes from 'prop-types';
 function Grid({ position, positionChange }) {
 
   const teleportRobot = (x, y) => {
+    console.log(position.x, position.y)
+    console.log(x,y)
+    let xDistance = position.x - x;
+    let yDistance = position.y - y;
+    console.log(xDistance,yDistance)
     if (x >= 1 && x <= 5 && y >= 1 && y <= 5) {
-      positionChange({ x, y });
+      setTimeout(()=>{
+        positionChange({ x, y });
+      },2000)
     }
   };
 
@@ -40,7 +47,7 @@ function Grid({ position, positionChange }) {
 }
 
 Grid.propTypes = {
-  position: PropTypes.string.isRequired,
+  position: PropTypes.object.isRequired,
   positionChange: PropTypes.func.isRequired
 };
 
