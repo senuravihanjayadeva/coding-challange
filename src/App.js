@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Grid from "./component/Grid.component";
+import NavigationController from "./component/NavigationController.component";
 
-function App() {
+const App = () => {
+  const [position, setPosition] = useState({ x: 1, y: 1 });
+
+  const positionChange = (position) => {
+    setPosition(position);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container p-5">
+      <h1 className="text-center">Pronto Coding Challenge</h1>
+      <div className="row p-5">
+        <div className="col-6">
+          <Grid positionChange={positionChange} position={position} />
+        </div>
+        <div className="col-6">
+          <NavigationController
+            position={position}
+            positionChange={positionChange}
+          />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
