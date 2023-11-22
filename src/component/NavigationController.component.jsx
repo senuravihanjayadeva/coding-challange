@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { DOWN_DIRECTION, LEFT_DIRECTION, RIGHT_DIRECTION, UP_DIRECTION } from '../const';
 
 function NavigationController({ position, positionChange }) {
   const moveRobot = (direction) => {
     const newPosition = { ...position };
 
     switch (direction) {
-      case 'up':
+      case UP_DIRECTION:
         if (newPosition.y > 1) newPosition.y--;
         break;
-      case 'right':
+      case RIGHT_DIRECTION:
         if (newPosition.x < 5) newPosition.x++;
         break;
-      case 'down':
+      case DOWN_DIRECTION:
         if (newPosition.y < 5) newPosition.y++;
         break;
-      case 'left':
+      case LEFT_DIRECTION:
         if (newPosition.x > 1) newPosition.x--;
         break;
       default:
@@ -30,7 +31,7 @@ function NavigationController({ position, positionChange }) {
       <h1 className="text-center">Control Panel</h1>
       <div className="row control-panel">
         <div className="col-12 text-center p-3">
-          <button aria-label="up-button" onClick={() => moveRobot('up')}>
+          <button aria-label="up-button" onClick={() => moveRobot(UP_DIRECTION)}>
             <i className="bi bi-arrow-up-square-fill navigation-icon"></i>
           </button>
         </div>
@@ -38,18 +39,18 @@ function NavigationController({ position, positionChange }) {
           <button
             data-testid={`left-btn`}
             aria-label="left-button"
-            onClick={() => moveRobot('left')}
+            onClick={() => moveRobot(LEFT_DIRECTION)}
           >
             <i className="bi bi-arrow-left-square-fill navigation-icon"></i>
           </button>
         </div>
         <div aria-label="right-button" className="col-6 text-end p-3">
-          <button data-testid={`right-btn`} onClick={() => moveRobot('right')}>
+          <button data-testid={`right-btn`} onClick={() => moveRobot(RIGHT_DIRECTION)}>
             <i className="bi bi-arrow-right-square-fill navigation-icon"></i>
           </button>
         </div>
         <div aria-label="down-button" className="col-12 text-center p-3">
-          <button onClick={() => moveRobot('down')}>
+          <button onClick={() => moveRobot(DOWN_DIRECTION)}>
             <i className="bi bi-arrow-down-square-fill navigation-icon"></i>
           </button>
         </div>
