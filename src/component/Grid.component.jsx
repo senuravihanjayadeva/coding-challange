@@ -26,6 +26,8 @@ function Grid({ position, positionChange }) {
       row.push(
         <div
           key={`${x}-${y}`}
+          data-testid={`cell-${x}-${y}`}
+          aria-label={`cell-${x}-${y}`}
           className={`cell ${position.x === x && position.y === y ? 'robot' : ''}`}
           onClick={() => teleportRobot(x, y)}></div>
       );

@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+// eslint-disable-next-line no-undef
+test('renders learn react link', async () => {
+  // eslint-disable-next-line react/react-in-jsx-scope
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const leftBtnElement = screen.getByTestId('right-btn');
+  fireEvent.click(leftBtnElement);
+  const robotCell =  await screen.getByTestId('cell-2-1');
+  // eslint-disable-next-line no-undef
+  expect(robotCell).toHaveClass('robot')
 });

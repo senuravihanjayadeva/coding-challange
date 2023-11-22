@@ -30,21 +30,21 @@ function NavigationController({ position, positionChange }) {
       <h1 className="text-center">Control Panel</h1>
       <div className="row">
         <div className="col-12 text-center p-3">
-          <button onClick={() => moveRobot("up")}>
+          <button aria-label="up-button" onClick={() => moveRobot("up")}>
             <i className="bi bi-arrow-up-square-fill navigation-icon"></i>
           </button>
         </div>
         <div className="col-6 text-start p-3">
-          <button onClick={() => moveRobot("left")}>
+          <button data-testid={`left-btn`} aria-label="left-button" onClick={() => moveRobot("left")}>
             <i className="bi bi-arrow-left-square-fill navigation-icon"></i>
           </button>
         </div>
-        <div className="col-6 text-end p-3">
-          <button onClick={() => moveRobot("right")}>
+        <div aria-label="right-button" className="col-6 text-end p-3">
+          <button data-testid={`right-btn`}  onClick={() => moveRobot("right")}>
             <i className="bi bi-arrow-right-square-fill navigation-icon"></i>
           </button>
         </div>
-        <div className="col-12 text-center p-3">
+        <div aria-label="down-button" className="col-12 text-center p-3">
           <button onClick={() => moveRobot("down")}>
             <i className="bi bi-arrow-down-square-fill navigation-icon"></i>
           </button>
