@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Grid({ position, positionChange }) {
 
@@ -37,5 +38,10 @@ function Grid({ position, positionChange }) {
     </div>
   );
 }
+
+Grid.propTypes = {
+  position: PropTypes.string.isRequired,
+  positionChange: PropTypes.func.isRequired
+};
 
 export default Grid;

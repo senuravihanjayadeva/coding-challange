@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function NavigationController({ position, positionChange }) {
   const moveRobot = (direction) => {
@@ -25,7 +26,9 @@ function NavigationController({ position, positionChange }) {
   };
 
   return (
-    <div className="row">
+    <React.Fragment>
+      <h1>Control Panel</h1>
+      <div className="row">
         <div className="col-12 text-center p-3">
           <button onClick={() => moveRobot("up")}>
             <i className="bi bi-arrow-up-square-fill navigation-icon"></i>
@@ -45,9 +48,15 @@ function NavigationController({ position, positionChange }) {
           <button onClick={() => moveRobot("down")}>
             <i className="bi bi-arrow-down-square-fill navigation-icon"></i>
           </button>
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
+
+NavigationController.propTypes = {
+  position: PropTypes.string.isRequired,
+  positionChange: PropTypes.func.isRequired
+};
 
 export default NavigationController;
