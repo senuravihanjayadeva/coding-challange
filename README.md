@@ -1,5 +1,6 @@
 # How to start the application
 In the project directory, you can run: npm start command.
+Hosted on Firebase
 
 # Best Practices and patterns
 Used Layout pattern
