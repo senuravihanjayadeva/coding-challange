@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Grid from './component/Grid.component';
 import NavigationController from './component/NavigationController.component';
+import { Position } from './types';
 
 const App = () => {
-  const [position, setPosition] = useState({ x: 1, y: 1 });
+  const [position, setPosition] = useState<Position>({ x: 1, y: 1 });
 
-  const positionChange = (position) => {
+  const positionChange = (position: Position) => {
     setPosition(position);
   };
 

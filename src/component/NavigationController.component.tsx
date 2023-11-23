@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DOWN_DIRECTION, LEFT_DIRECTION, RIGHT_DIRECTION, UP_DIRECTION } from '../const';
+import { GridNavigationProp } from '../types';
 
-function NavigationController({ position, positionChange }) {
-  const moveRobot = (direction) => {
+function NavigationController({ position, positionChange } : Readonly<GridNavigationProp>) {
+  const moveRobot = (direction : string) => {
     const newPosition = { ...position };
 
     switch (direction) {
@@ -58,10 +58,5 @@ function NavigationController({ position, positionChange }) {
     </React.Fragment>
   );
 }
-
-NavigationController.propTypes = {
-  position: PropTypes.object.isRequired,
-  positionChange: PropTypes.func.isRequired
-};
 
 export default NavigationController;

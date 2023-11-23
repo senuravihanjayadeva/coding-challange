@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import FadeLoader from 'react-spinners/FadeLoader';
+import { GridNavigationProp } from '../types';
 
-function Grid({ position, positionChange }) {
+function Grid({ position, positionChange }: Readonly<GridNavigationProp>) {
   const [loading, setLoading] = useState(false);
 
-  const teleportRobot = (x, y) => {
+  const teleportRobot = (x: number, y: number) => {
     console.time('teleport-time');
     setLoading(true);
     const totalDistance = Math.abs(position.x - x) + Math.abs(position.y - y);
@@ -29,12 +29,12 @@ function Grid({ position, positionChange }) {
           data-testid={`cell-${x}-${y}`}
           aria-label={`cell-${x}-${y}`}
           className={`cell ${position.x === x && position.y === y ? 'robot' : ''}`}
-          onClick={() => teleportRobot(x, y)}>
+          onClick={() => teleportRobot(x, y)}
+          onKeyDown={() => teleportRobot(x, y)}>
           {position.x === x && position.y === y && (
             <FadeLoader
               color={'black'}
               loading={loading}
-              size={50}
               aria-label="Loading Spinner"
               data-testid="loader"
               className="loader-spinner"
@@ -52,10 +52,5 @@ function Grid({ position, positionChange }) {
     </div>
   );
 }
-
-Grid.propTypes = {
-  position: PropTypes.object.isRequired,
-  positionChange: PropTypes.func.isRequired
-};
 
 export default Grid;
